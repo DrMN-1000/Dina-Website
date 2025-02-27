@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الفيديو الثاني - الأميرة دينا</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-image: url('../images/backgrounds/videos-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .video-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .video-controls {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .video-controls button {
+            background: #ff69b4;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+
+        .video-controls button:hover {
+            background: #ff1493;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+        }
+    </style>
+</head>
+<body class="video2-page">
+    <script>
+        // التحقق من الجلسة أولًا
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "../index.html";
+        }
+    </script>
+
+    <div class="video-container">
+        <video controls>
+            <source src="../videos/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-controls">
+            <button onclick="location.href='../profile.html'">العودة إلى البروفايل</button>
+        </div>
+    </div>
+</body>
+</html>

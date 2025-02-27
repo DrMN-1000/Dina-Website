@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ذكرياتنا - الأميرة دينا</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-image: url('../images/backgrounds/memories-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .memories-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .memory-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 15px;
+            border-left: 5px solid #ff69b4;
+        }
+
+        .memory-content img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .memory-date {
+            color: #ffd700;
+            margin-top: 1rem;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="memories-page">
+  <script>
+// التحقق من حالة الجلسة
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html"; // إعادة التوجيه للصفحة الرئيسية
+}
+</script>
+    <header>
+        <h1>💌 ذكرياتنا العاطفية</h1>
+        <a href="../profile.html" class="back-btn">العودة ←</a>
+    </header>
+
+    <div class="memories-container">
+        <!-- سيتم توليد الذكريات تلقائيًا -->
+    </div>
+
+    <script>
+        // توليد الذكريات ديناميكيًا
+        fetch('../data/memories.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.querySelector('.memories-container');
+                data.memories.forEach((memory, index) => {
+                    const memoryDiv = document.createElement('div');
+                    memoryDiv.className = 'memory-item';
+                    memoryDiv.innerHTML = `
+                        <div class="memory-content">
+                            ${memory.type === 'text' ? 
+                                `<p>${memory.content}</p>` : 
+                                `<img src="${memory.content}" alt="ذكرى ${index + 1}">`
+                            }
+                        </div>
+                        <div class="memory-date">${memory.date}</div>
+                    `;
+                    container.appendChild(memoryDiv);
+                });
+            })
+            .catch(error => {
+                console.error('حدث خطأ:', error);
+            });
+    </script>
+</body>
+</html>

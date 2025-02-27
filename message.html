@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>رسالة خاصة للأميرة دينا 💌</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* تأثيرات النص */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* تخصيص الخلفية */
+        .message-page {
+            background-image: url('../images/backgrounds/message-bg.jpg'); /* خلفية الصفحة */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            color: #333;
+            max-width: 800px;
+            margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        audio {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        button {
+            background: #ff69b4;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background: #ff1493;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+        }
+    </style>
+</head>
+<body class="message-page">
+    <script>
+        // التحقق من الجلسة أولًا
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "index.html"; // إعادة التوجيه لصفحة تسجيل الدخول
+        }
+    </script>
+
+    <div class="message-box">
+        <h1>رسالة خاصة لقطتي الصغيرة 🐱💕</h1>
+        <audio controls>
+            <source src="../audio/voice-message.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <p>
+            يا أحلى كتكوتة في العالم، لو شو ما صار مستحيل أتخلى عنكِ. أنتِ أغلى ما أملك، وأنا مستعد أفديكِ بروحي ودمي. كل يوم معكِ هو هدية، وكل لحظة بعيدًا عنكِ هي فراق مؤلم. أنتِ نعمة في حياتي، وأعدكِ أني مستحيل أخلي شي يصير لكِ وأنا موجود. أحبكِ أكثر مما تتخيلين، وكل يوم أحبكِ أكثر من اليوم اللي فات. 💖
+        </p>
+        <button onclick="location.href='profile.html'">العودة إلى البروفايل 🏠</button>
+    </div>
+</body>
+</html>

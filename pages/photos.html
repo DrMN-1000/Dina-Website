@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>صورالاميرة دندن </title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-image: url('../images/backgrounds/photos-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-number {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="photos-page">
+  <script>
+// التحقق من حالة الجلسة
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html"; // إعادة التوجيه للصفحة الرئيسية
+}
+</script>
+    <header>
+        <h1>🖼️صور  الكتكوتة دندن</h1>
+        <a href="../profile.html" class="back-btn">العودة ←</a>
+    </header>
+
+    <div class="gallery-grid">
+        <!-- سيتم توليد الصور تلقائيًا -->
+    </div>
+
+    <script>
+        // توليد الصور ديناميكيًا
+        const gallery = document.querySelector('.gallery-grid');
+        let photoCount = 1;
+
+        function loadPhotos() {
+            const imgPath = `../images/photos/${photoCount}.jpg`;
+            const img = new Image();
+            img.src = imgPath;
+
+            img.onload = () => {
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'photo-item';
+                photoDiv.innerHTML = `
+                    <img src="${imgPath}" alt="صورة ${photoCount}">
+                    <div class="photo-number">${photoCount}</div>
+                `;
+                gallery.appendChild(photoDiv);
+                photoCount++;
+                loadPhotos(); // تحميل الصورة التالية
+            };
+
+            img.onerror = () => {
+                console.log(`تم تحميل ${photoCount - 1} صورة`); // طباعة عدد الصور
+            };
+        }
+
+        loadPhotos();
+    </script>
+</body>
+</html>

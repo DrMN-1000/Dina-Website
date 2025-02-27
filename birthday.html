@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عيد ميلاد سعيد يا دينا! 🎉</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .birthday-page {
+            background-image: url('../images/birthday-bg.jpg');
+            color: #ffd700;
+            text-shadow: 2px 2px 4px #000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .message-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 2rem;
+            text-align: center;
+        }
+        button {
+            background: #ff69b4;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: #ff1493;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+        }
+    </style>
+</head>
+<body class="birthday-page">
+    <script>
+        // التحقق من الجلسة أولًا
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "index.html"; // إعادة التوجيه لصفحة تسجيل الدخول
+        }
+    </script>
+
+    <div class="message-box">
+        <h1>عيد ميلاد سعيد يا أغلى إنسانة! 🎂🎈</h1>
+        <p>يا دينا، يا أجمل ما في حياتي، كل عام وأنتِ أكثر إشراقًا وسعادة. أنتِ نعمة في حياتي، وأنا ممتن لكل لحظة أقضيها معكِ. مهما كتبت لن أوفيكِ حقك، لكن اعلمي أنكِ أغلى ما أملك.</p>
+        <button onclick="location.href='video1.html'">استمري في الرحلة السحرية 🪄</button>
+    </div>
+</body>
+</html>
